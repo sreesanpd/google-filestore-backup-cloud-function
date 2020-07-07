@@ -5,3 +5,5 @@ I have adapted the code given in https://medium.com/google-cloud/using-cloud-sch
 
 This cloud function, written in go, is configured to launch a debian virtual machine (f1.micro). The VM will mount primary filestore to the VM and backup the contents of primary filestore to google cloud storage bucket. It will also mount secondary filestore to the VM and sync the contents from primary filestore, which can be used during disaster recovery. The backup frequency can be scheduled using cloud scheduler. 
 
+The cloud scheduler enables us to schedule the backup frequency. The cloud scheduler will invoke the cloud function at scheduled frequency which will then lanch the VM, take the backup and shut it down after the process. 
+
